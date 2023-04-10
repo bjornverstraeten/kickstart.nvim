@@ -1,6 +1,7 @@
 -- [[ Basic Keymaps ]]
 vim.keymap.set('i', 'jj', '<Esc>', {})
 vim.keymap.set({ 'n', 'v' }, '<leader>h', ':noh<CR>', {})
+vim.keymap.set('n', '<leader>t', ':Neotree toggle<CR>')
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
