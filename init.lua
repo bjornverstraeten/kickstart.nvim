@@ -112,11 +112,13 @@ require('lazy').setup({
     },
   },
 
-  { -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+  { --colorscheme 
+    'ellisonleao/gruvbox.nvim',
+    lazy = false, -- make sure we load this during startup
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      -- load the colorscheme here
+      vim.cmd([[colorscheme gruvbox]])
     end,
   },
 

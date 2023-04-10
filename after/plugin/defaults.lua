@@ -1,6 +1,5 @@
 -- [[ Basic Keymaps ]]
-vim.keymap.set('i', 'jk', '<Esc>', {})
-vim.keymap.set('i', 'kj', '<Esc>', {})
+vim.keymap.set('i', 'jj', '<Esc>', {})
 vim.keymap.set({ 'n', 'v' }, '<leader>h', ':noh<CR>', {})
 
 -- [[ Setting options ]]
@@ -30,12 +29,8 @@ vim.o.cursorlineopt = 'number'
 vim.opt.relativenumber = true
 
 -- Set colorscheme
-vim.o.termguicolors = true
 vim.o.background = 'dark'
-vim.cmd [[
-    silent! colorscheme gruvbox
-    hi Normal guibg=none
-]]
+vim.cmd([[hi Normal guibg=none]])
 
 -- Set lualine as statusline
 -- See `:help lualine.txt`
@@ -54,22 +49,22 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
--- [[ Configuring null_ls ]]
-local null_ls = require('null-ls')
-
--- Register any number of sources simultaneously
-local sources = {
-  null_ls.builtins.formatting.black,
-  null_ls.builtins.diagnostics.pylint.with({
-    extra_args = { '-d',
-      'too-many-lines,missing-module-docstring,missing-class-docstring,missing-function-docstring,import-error' },
-    env = { PYTHONPATH = '/home/bjorn/miniconda3/bin/python' }
-  }),
-}
-
-null_ls.setup({ sources = sources })
+-- -- [[ Configuring null_ls ]]
+-- local null_ls = require('null-ls')
+--
+-- -- Register any number of sources simultaneously
+-- local sources = {
+--   null_ls.builtins.formatting.black,
+--   null_ls.builtins.diagnostics.pylint.with({
+--     extra_args = { '-d',
+--       'too-many-lines,missing-module-docstring,missing-class-docstring,missing-function-docstring,import-error' },
+--     env = { PYTHONPATH = '/home/bjorn/miniconda3/bin/python' }
+--   }),
+-- }
+--
+-- null_ls.setup({ sources = sources })
 
 -- -- [[ Configure LuaSnip ]]
 require("luasnip.loaders.from_lua").lazy_load({paths = "~/.config/nvim/LuaSnip/"})
-require("luasnip.loaders.from_snipmate").lazy_load({paths = "~/.local/share/nvim/site/pack/packer/start/vim-snippets/snippets"})
+-- require("luasnip.loaders.from_snipmate").lazy_load({paths = "~/.local/share/nvim/site/pack/packer/start/vim-snippets/snippets"})
 
