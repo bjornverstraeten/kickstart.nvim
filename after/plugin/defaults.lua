@@ -19,9 +19,9 @@ vim.g.clipboard = {
     },
     cache_enabled = true,
 }
-vim.opt.clipboard = 'unnamedplus'
+-- vim.opt.clipboard = 'unnamedplus'
 
-vim.o.hlsearch = true
+-- vim.o.hlsearch = true
 
 -- highlight current cursorline
 vim.o.cursorline = true
