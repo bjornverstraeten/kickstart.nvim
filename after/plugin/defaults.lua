@@ -26,20 +26,7 @@ vim.o.cursorlineopt = 'number'
 
 vim.opt.relativenumber = true
 
--- Set colorscheme
-vim.o.background = 'dark'
-vim.cmd([[hi Normal guibg=none]])
-
--- Set lualine as statusline
--- See `:help lualine.txt`
-require('lualine').setup {
-    options = {
-        icons_enabled = false,
-        theme = 'gruvbox',
-        component_separators = '|',
-        section_separators = '',
-    },
-}
+-- vim.o.spelllang = {'en_us', 'nl', 'medical'}
 
 -- [[ Setting providers ]]
 vim.g.python3_host_prog = '/home/bjorn/miniconda3/bin/python3'
