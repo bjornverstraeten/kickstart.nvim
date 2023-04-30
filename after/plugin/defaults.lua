@@ -1,7 +1,9 @@
 -- [[ Basic Keymaps ]]
 vim.keymap.set('i', 'jj', '<Esc>', {})
-vim.keymap.set({ 'n', 'v' }, '<leader>h', ':noh<CR>', {})
-vim.keymap.set('n', '<leader>t', ':Neotree toggle<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>h', ':noh<CR>', { silent = true })
+vim.keymap.set('n', '<leader>t', ':Neotree toggle<CR>', { silent = true })
+vim.keymap.set('n', '<leader>cs', ':set spell! | echo "Spell " . (&spell ? "on" : "off")<CR>',
+    { silent = true, desc = '[C]heck [S]pell' })
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -20,13 +22,22 @@ vim.g.clipboard = {
     cache_enabled = true,
 }
 
--- highlight current cursorline
+-- Highlight current cursorline
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'number'
 
 vim.opt.relativenumber = true
 
--- vim.o.spelllang = {'en_us', 'nl', 'medical'}
+-- Set spellfiles
+vim.opt.spellfile = {
+    vim.fn.stdpath('config') .. '/spell/en.utf-8.add',
+    vim.fn.stdpath('config') .. '/spell/medical.utf-8.add',
+    vim.fn.stdpath('config') .. '/spell/nl.utf-8.add'
+}
+
+-- Set spell languages
+vim.opt.spelllang = { 'en', 'nl', 'medical' }
+
 
 -- [[ Setting providers ]]
 vim.g.python3_host_prog = '/home/bjorn/miniconda3/bin/python3'
