@@ -17,6 +17,9 @@ return {
             }),
         }
 
-        null_ls.setup({ sources = sources })
+        null_ls.setup({
+            sources = sources,
+            preview = 200,
+        })
     end
 }
