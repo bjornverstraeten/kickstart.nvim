@@ -84,7 +84,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -122,7 +122,6 @@ require('lazy').setup({
     config = function()
       -- load the colorscheme here
       vim.g.gruvbox_baby_transparent_mode = true
-      local colors = require("gruvbox-baby.colors").config()
       vim.cmd([[colorscheme gruvbox-baby]])
     end,
   },
