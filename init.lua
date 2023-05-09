@@ -26,6 +26,9 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
+    -- Latex
+    'lervag/vimtex',
+
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
     {
@@ -68,14 +71,11 @@ require('lazy').setup({
 
     {
         --colorscheme
-        'luisiacc/gruvbox-baby',
+        "rebelot/kanagawa.nvim",
         lazy = false, -- make sure we load this during startup
         priority = 1000,
         config = function()
-          -- load the colorscheme here
-          vim.g.gruvbox_baby_transparent_mode = true
-          local colors = require("gruvbox-baby.colors").config()
-          vim.cmd([[colorscheme gruvbox-baby]])
+          vim.cmd("colorscheme kanagawa")
         end,
     },
 
@@ -85,10 +85,7 @@ require('lazy').setup({
         -- See `:help lualine.txt`
         opts = {
             options = {
-                icons_enabled = false,
-                theme = 'gruvbox-baby',
-                component_separators = '|',
-                section_separators = '',
+                theme = 'kanagawa',
             },
         },
     },
@@ -105,7 +102,7 @@ require('lazy').setup({
     },
 
     -- "gc" to comment visual regions/lines
-    { 'numToStr/Comment.nvim',         opts = {} },
+    { 'numToStr/Comment.nvim' },
 
     -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },

@@ -3,11 +3,4 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-    'ellisonleao/gruvbox.nvim',
-
-    -- Latex
-    'lervag/vimtex',
-
-    -- Snippets
-    'honza/vim-snippets'
 }
