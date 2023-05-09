@@ -6,6 +6,7 @@ return {
         options = {
             theme = 'kanagawa',
             -- theme = 'gruvbox',
+            -- theme = 'gruvbox-baby',
         },
     },
 }

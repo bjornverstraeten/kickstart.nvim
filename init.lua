@@ -54,10 +54,11 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 -- gruvbox
 -- vim.o.background = "dark" -- or "light" for light mode
--- vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd("colorscheme gruvbox")
 -- kanagawa
 vim.cmd("colorscheme kanagawa")
-
+-- gruvbox
+-- vim.cmd("colorscheme gruvbox-baby")
 
 -- Search
 vim.o.hlsearch = true -- Set highlight on search
