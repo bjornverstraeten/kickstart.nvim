@@ -31,7 +31,7 @@ require('lazy').setup('plugins')
 -- Keymaps
 require('mappings')
 
---Options
+-- Options
 -- See `:help vim.o`
 
 -- Indentation
