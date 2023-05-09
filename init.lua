@@ -114,6 +114,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
 })
 
+-- Specify snippet path
+require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/lua/snippets" })
+require("luasnip.loaders.from_snipmate").lazy_load()
+
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
     local nmap = function(keys, func, desc)
