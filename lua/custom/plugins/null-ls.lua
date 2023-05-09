@@ -9,6 +9,8 @@ return {
         -- Register any number of sources simultaneously
         local sources = {
             null_ls.builtins.diagnostics.chktex,
+            null_ls.builtins.code_actions.xo,
+            null_ls.builtins.formatting.standardts,
             null_ls.builtins.formatting.black,
             null_ls.builtins.diagnostics.pylint.with({
                 extra_args = { '-d',
@@ -16,7 +18,6 @@ return {
                 env = { PYTHONPATH = '/home/bjoverst/scripts/base/bin/python' }
             }),
         }
-
         null_ls.setup({
             sources = sources,
             preview = 200,
