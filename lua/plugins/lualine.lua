@@ -4,8 +4,8 @@ return {
     -- See `:help lualine.txt`
     opts = {
         options = {
-            theme = 'kanagawa',
-            -- theme = 'gruvbox',
+            -- theme = 'kanagawa',
+            theme = 'gruvbox',
             -- theme = 'gruvbox-baby',
         },
     },

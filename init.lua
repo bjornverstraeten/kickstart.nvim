@@ -35,14 +35,14 @@ require('mappings')
 -- See `:help vim.o`
 
 -- Indentation
-vim.opt.autoindent = true -- continue indentation to new line
+vim.opt.autoindent = true  -- continue indentation to new line
 vim.opt.smartindent = true -- add extra indent when it makes sense
-vim.opt.smarttab = true -- <Tab> at the start of a line behaves as expected
-vim.opt.expandtab = true -- <Tab> inserts spaces
-vim.opt.shiftwidth = 4 -- >>, << shift line by 4 spaces
-vim.opt.tabstop = 4 -- <Tab> appears as 4 spaces
-vim.opt.softtabstop = 4 -- <Tab> behaves as 4 spaces when editing
-vim.o.breakindent = true -- Enable break indent
+vim.opt.smarttab = true    -- <Tab> at the start of a line behaves as expected
+vim.opt.expandtab = true   -- <Tab> inserts spaces
+vim.opt.shiftwidth = 4     -- >>, << shift line by 4 spaces
+vim.opt.tabstop = 4        -- <Tab> appears as 4 spaces
+vim.opt.softtabstop = 4    -- <Tab> behaves as 4 spaces when editing
+vim.o.breakindent = true   -- Enable break indent
 
 -- Save undo history
 vim.o.undofile = true
@@ -56,14 +56,14 @@ vim.o.termguicolors = true
 -- vim.o.background = "dark" -- or "light" for light mode
 -- vim.cmd("colorscheme gruvbox")
 -- kanagawa
-vim.cmd("colorscheme kanagawa")
+-- vim.cmd("colorscheme kanagawa")
 -- gruvbox
--- vim.cmd("colorscheme gruvbox-baby")
+vim.cmd("colorscheme gruvbox-baby")
 
 -- Search
-vim.o.hlsearch = true -- Set highlight on search
+vim.o.hlsearch = true   -- Set highlight on search
 vim.o.ignorecase = true -- Case insensitive searching
-vim.o.smartcase = true -- UNLESS /C or capital in search
+vim.o.smartcase = true  -- UNLESS /C or capital in search
 
 -- Make line numbers default
 vim.wo.number = true
