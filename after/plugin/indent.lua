@@ -2,4 +2,6 @@ require("indent_blankline").setup {
     -- for example, context is off by default, use this to turn it on
     show_trailing_blankline_indent = false,
     use_treesitter = true,
+    vim.cmd([[highlight IndentBlanklineChar guifg=#7c6f64 gui=nocombine]]),
+    vim.cmd([[highlight IndentBlanklineSpaceChar guifg=#7c6f64 gui=nocombine]]),
 }
