@@ -46,7 +46,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.keymap.set('n', '<leader>s', ':set spell! | echo "Spell " . (&spell ? "on" : "off")<CR>',
-    { silent = true, desc = '[T]oggle [S]pelling' })
+    { silent = true, desc = 'Toggle [S]pelling' })
 
 -- Diagnostic keymaps
 vim.g.diagnostics_visible = true

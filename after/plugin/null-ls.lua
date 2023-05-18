@@ -7,7 +7,6 @@ local sources = {
     null_ls.builtins.diagnostics.pylint.with({
         extra_args = { '-d',
             'too-many-lines,missing-module-docstring,missing-class-docstring,missing-function-docstring,import-error' },
-        env = { PYTHONPATH = '/home/bjorn/miniconda3/bin/python' }
     }),
 }
 
