@@ -5,7 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Providers
-vim.g.python3_host_prog = '/home/bjorn/miniconda3/bin/python3'
+vim.g.python3_host_prog = '/home/bjorn/scripts/base/bin/python'
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0

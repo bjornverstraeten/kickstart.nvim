@@ -39,8 +39,23 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
+--- toggle diagnostics, used in null_ls
+vim.g.diagnostics_visible = true
+function Toggle_diagnostics()
+    if vim.g.diagnostics_visible then
+        vim.g.diagnostics_visible = false
+        vim.diagnostic.disable()
+        print('Diagnostics off')
+    else
+        vim.g.diagnostics_visible = true
+        vim.diagnostic.enable()
+        print('Diagnostics on')
+    end
+end
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set('n', '<leader>ld', ':lua Toggle_diagnostics()<CR>', { silent = true, desc = "[L]int [D]iagnostics" })
