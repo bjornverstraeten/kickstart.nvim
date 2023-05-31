@@ -1,5 +1,4 @@
-require("set")
-require("remap")
+vim.g.mapleader = " "
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -16,3 +15,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+require("set")
+require("remap")

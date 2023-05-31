@@ -1,7 +1,10 @@
+-- Line number
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Color
 vim.opt.termguicolors = true
+vim.cmd.colorscheme("gruvbox")
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
