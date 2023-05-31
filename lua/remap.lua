@@ -9,6 +9,14 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+vim.keymap.set("n", "i", function()
+    if #vim.fn.getline(".") == 0 then
+        return [["_cc]]
+    else
+        return "i"
+    end
+end, { expr = true })
+
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
@@ -45,6 +53,7 @@ vim.keymap.set("i", "<S-Tab>", "<C-\\><C-N>v<<C-\\><C-N>^i")
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Spelling
 vim.keymap.set('n', '<leader>s', ':set spell! | echo "Spell " . (&spell ? "on" : "off")<CR>',
     { silent = true, desc = 'Toggle [S]pelling' })
 

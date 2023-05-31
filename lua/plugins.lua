@@ -5,16 +5,6 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
-        "rebelot/kanagawa.nvim",
-        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
-    },
-    {
-        'ellisonleao/gruvbox.nvim',
-        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
-    },
-    {
         'nvim-treesitter/nvim-treesitter',
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
@@ -76,17 +66,6 @@ return {
         },
     },
     {
-        'nvim-lualine/lualine.nvim',
-    },
-    {
-        'numToStr/Comment.nvim',
-        opts = {}
-    },
-    {
-        "windwp/nvim-autopairs",
-        opts = {}
-    },
-    {
         "lukas-reineke/indent-blankline.nvim"
     },
     {
@@ -96,5 +75,22 @@ return {
         'jose-elias-alvarez/null-ls.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
-
+    {
+        'iamcco/markdown-preview.nvim',
+        build = 'cd app && npm install',
+        enabled = true,
+        ft = 'markdown',
+    },
+    {
+        'echasnovski/mini.nvim',
+        version = false,
+        config = function()
+            -- Specify modules
+            require('mini.pairs').setup()
+            require('mini.comment').setup()
+            require('mini.fuzzy').setup()
+            require('mini.bufremove').setup()
+            require('mini.statusline').setup()
+        end
+    },
 }

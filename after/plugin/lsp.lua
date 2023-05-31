@@ -45,8 +45,8 @@ lsp.format_on_save({
     },
     servers = {
         ['lua_ls'] = { 'lua' },
-        ['null-ls'] = { 'python' },
-        ['tsserver'] = { 'javascript' },
+        ['null-ls'] = { 'python', "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss",
+            "less", "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" },
     }
 })
 

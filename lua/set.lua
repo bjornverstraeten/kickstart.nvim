@@ -65,3 +65,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = highlight_group,
     pattern = '*',
 })
+
+-- Spelling
+vim.opt.spelllang = { 'en', 'nl', 'medical' }
+vim.opt.spellfile = {
+    vim.fn.stdpath('config') .. '/spell/en.utf-8.add',
+    vim.fn.stdpath('config') .. '/spell/medical.utf-8.add',
+    vim.fn.stdpath('config') .. '/spell/nl.utf-8.add'
+}
+
+-- Statusline
+vim.opt.laststatus = 3
