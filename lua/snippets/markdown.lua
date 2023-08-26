@@ -1,17 +1,40 @@
-local snippet = require("luasnip").snippet
-local text_node = require("luasnip").text_node
-local insert_node = require("luasnip").insert_node
+local ls = require("luasnip")
+-- some shorthands...
+local snip = ls.snippet
+local node = ls.snippet_node
+local text = ls.text_node
+local insert = ls.insert_node
+local func = ls.function_node
+local choice = ls.choice_node
+local dynamicn = ls.dynamic_node
+
 return {
-    snippet(
+    snip({
+            trig = "ln",
+            namr = "markdown_link",
+            dscr = "Create markdown link [txt](url)"
+        },
+        {
+            text('['),
+            insert(1),
+            text(']('),
+            func(function(_, selection)
+                return selection.env.TM_SELECTED_TEXT[1] or {}
+            end, {}),
+            text(')'),
+            insert(0),
+        }),
+
+    snip(
         {
             trig = '```',
             dscr = "multilinestring double",
             snippetType = "autosnippet"
         },
         {
-            text_node({ '```', '' }),
-            insert_node(1),
-            text_node({ '', '``' }),
+            text({ '```', '' }),
+            insert(1),
+            text({ '', '``' }),
         }
-    ),
+    )
 }

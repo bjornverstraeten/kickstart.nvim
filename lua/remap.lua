@@ -14,6 +14,9 @@ vim.keymap.set("n", "i", function()
         return "i"
     end
 end, { expr = true })
+-- completion
+vim.keymap.set("i", ";;", "<c-x><c-f>")
+vim.keymap.set("i", ";]", "<c-x><c-]>")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -74,3 +77,12 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+-- Enable personal wiki form everywhere
+vim.keymap.set('n', '<leader>n', ':e $NOTES_DIR/index.md<CR>:cd $NOTES_DIR<CR>',
+    { silent = true, desc = "go to notes" })
+
+vim.keymap.set('n', '<leader>nn', function()
+    local filepath = '$NOTES_DIR/' .. os.date("%Y%m%d%H%M%S") .. ".md"
+    vim.api.nvim_command(":e " .. filepath)
+end, { desc = 'new note' })

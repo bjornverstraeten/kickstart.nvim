@@ -76,12 +76,6 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
     {
-        'iamcco/markdown-preview.nvim',
-        build = 'cd app && npm install',
-        enabled = true,
-        ft = 'markdown',
-    },
-    {
         'echasnovski/mini.nvim',
         version = false,
         config = function()
@@ -91,6 +85,7 @@ return {
             require('mini.fuzzy').setup()
             require('mini.bufremove').setup()
             require('mini.statusline').setup()
+            require('mini.surround').setup()
         end
     },
 }

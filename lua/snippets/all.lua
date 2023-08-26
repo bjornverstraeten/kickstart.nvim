@@ -1,14 +1,21 @@
-return {
-    -- A snippet that expands the trigger "hi" into the string "Hello, world!".
-    s(
-        { trig = "hi" },
-        { t("Hello, world!") }
-    ),
+local ls = require("luasnip")
+-- some shorthands...
+local snip = ls.snippet
+local node = ls.snippet_node
+local text = ls.text_node
+local insert = ls.insert_node
+local func = ls.function_node
+local choice = ls.choice_node
+local dynamicn = ls.dynamic_node
 
-    -- To return multiple snippets, use one `return` statement per snippet file
-    -- and return a table of Lua snippets.
-    require("luasnip").snippet(
-        { trig = "foo" },
-        { t("Another snippet.") }
-    ),
+local date = function() return { os.date('%Y-%m-%d') } end
+
+return {
+    snip({
+        trig = "date",
+        namr = "Date",
+        dscr = "Date in the form of YYYY-MM-DD",
+    }, {
+        func(date, {}),
+    }),
 }

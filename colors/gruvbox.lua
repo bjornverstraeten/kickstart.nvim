@@ -24,4 +24,10 @@ require("mini.base16").setup({
 
 vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { fg = "#665c54", bg = "#3c3836" })
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#fe8019", bg = "#282828" })
+vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#fb4934" })
+vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#fabd2f" })
+vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = "#fb4934" })
+vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn", { fg = "#fabd2f" })
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { underline = true, sp = "#fb4934" })
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { underline = true, sp = "#fabd2f" })
 vim.g.colors_name = "gruvbox"
