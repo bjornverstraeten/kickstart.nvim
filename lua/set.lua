@@ -13,11 +13,6 @@ vim.opt.isfname:append("@-@")
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
--- -- prequisities for wikivim
--- vim.opt.compatible = false    -- Set nocompatible
--- vim.cmd('filetype plugin on') -- Enable filetype plugins
--- vim.cmd('syntax enable')      -- Enable syntax highlighting
-
 -- Indentation
 vim.opt.autoindent = true  -- continue indentation to new line
 vim.opt.smartindent = true -- add extra indent when it makes sense

@@ -1,6 +1,4 @@
 vim.opt.conceallevel = 3
--- vim.cmd [[syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained conceal]]
--- vim.cmd [[syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(\%(\_[^][]\|\[\_[^][]*\]\)*]\%( \=[[(]\)\)\@=" end="\]\%( \=[[(]\)\@=" nextgroup=markdownLink,markdownId skipwhite contains=@markdownInline,markdownLineStart concealends]]
 
 vim.keymap.set('n', '<leader>ny', ':let @" =expand("%:t")<CR>',
     { noremap = true, silent = true, desc = "yank filename of note" })
