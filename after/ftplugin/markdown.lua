@@ -1,8 +1,14 @@
--- vim.keymap.set('n', '<leader>ny', ':let @" =expand("%:t")<CR>',
---     { noremap = true, silent = true, desc = "yank filename of note" })
--- vim.keymap.set('n', '<leader>nt', ':!ctags -R . <CR>:redraw!<CR>',
---     { noremap = true, silent = true, desc = "generate note tags" })
+vim.opt.conceallevel = 3
+-- vim.cmd [[syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained conceal]]
+-- vim.cmd [[syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(\%(\_[^][]\|\[\_[^][]*\]\)*]\%( \=[[(]\)\)\@=" end="\]\%( \=[[(]\)\@=" nextgroup=markdownLink,markdownId skipwhite contains=@markdownInline,markdownLineStart concealends]]
 
+vim.keymap.set('n', '<leader>ny', ':let @" =expand("%:t")<CR>',
+    { noremap = true, silent = true, desc = "yank filename of note" })
+
+vim.keymap.set('n', '<leader>nt', ':!ctags -R . <CR>:redraw!<CR>',
+    { noremap = true, silent = true, desc = "generate note tags" })
+
+-- navigation
 vim.keymap.set('n', '<CR>', function()
     local line = vim.fn.getline(".")
     local cur = vim.api.nvim_win_get_cursor(0)
@@ -41,10 +47,6 @@ vim.keymap.set('n', '<BS>', function()
         vim.cmd 'bd'
     end
 end, { buffer = true })
-
-vim.opt.conceallevel = 3
--- vim.cmd [[syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained conceal]]
--- vim.cmd [[syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(\%(\_[^][]\|\[\_[^][]*\]\)*]\%( \=[[(]\)\)\@=" end="\]\%( \=[[(]\)\@=" nextgroup=markdownLink,markdownId skipwhite contains=@markdownInline,markdownLineStart concealends]]
 
 vim.keymap.set("n", "<Tab>", "<Cmd>call search('\\[[^]]*\\]([^)]\\+)')<CR>", { buffer = true })
 vim.keymap.set("n", "<S-Tab>", "<Cmd>call search('\\[[^]]*\\]([^)]\\+)', 'b')<CR>", { buffer = true })
