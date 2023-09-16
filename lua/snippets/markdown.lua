@@ -18,11 +18,8 @@ return {
             text('['),
             insert(1),
             text(']('),
-            func(function(_, selection)
-                return selection.env.TM_SELECTED_TEXT[1] or {}
-            end, {}),
-            text(')'),
-            insert(0),
+            insert(2),
+            text(')')
         }),
 
     snip(
