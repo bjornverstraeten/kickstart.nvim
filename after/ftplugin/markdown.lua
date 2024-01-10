@@ -9,6 +9,24 @@ vim.keymap.set('n', '<leader>gd', function()
     vim.api.nvim_cmd({ cmd = 'tj', args = { key } }, {})
 end)
 
+
+vim.keymap.set('n', '<leader>yf', function()
+    local opts = {
+        attach_mappings = function(_, map)
+            map("n", "<CR>", function(prompt_bufnr)
+                -- filename is available at entry[1]
+                local entry = require("telescope.actions.state").get_selected_entry()
+                require("telescope.actions").close(prompt_bufnr)
+                local filename = entry[1]
+                -- Insert filename in current cursor position
+                vim.cmd('normal i' .. filename)
+            end)
+            return true
+        end,
+    }
+    require("telescope.builtin").find_files(opts)
+end)
+
 -- navigation
 vim.keymap.set('n', '<CR>', function()
     local line = vim.fn.getline(".")
