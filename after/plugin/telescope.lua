@@ -24,3 +24,8 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 vim.keymap.set('n', '<leader>fr', function()
     builtin.grep_string({ search = vim.fn.expand('%:t') }, { desc = "Find References" })
 end)
+
+vim.keymap.set('n', '<leader>fe', function()
+    vim.api.nvim_command(":cd $NOTES_DIR")
+    builtin.grep_string({ desc = "Find Entry" })
+end)

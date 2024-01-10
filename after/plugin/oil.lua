@@ -4,4 +4,4 @@ require("oil").setup({
         ["<BS>"] = "actions.parent"
     }
 })
-vim.keymap.set("n", "<leader>o", ":Oil<CR>")
+vim.keymap.set("n", "<leader>o", ":Oil<CR>", { noremap = true, silent = true, desc = "open current directory" })

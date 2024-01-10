@@ -57,5 +57,14 @@ return {
         {
             text_node("import matplotlib.pyplot as plt")
         }
+    ),
+    snippet(
+        {
+            trig = "sns",
+            dscr = "import seaborn as sns"
+        },
+        {
+            text_node("import seaborn as sns")
+        }
     )
 }

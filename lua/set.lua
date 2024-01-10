@@ -32,7 +32,7 @@ vim.opt.undofile = true
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeout = true
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 500
 
 -- Clipboard
 vim.g.clipboard = {

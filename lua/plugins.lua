@@ -1,7 +1,7 @@
 return {
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
+        -- tag = '0.1.1',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
@@ -28,18 +28,12 @@ return {
     },
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v3.x',
         dependencies = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' }, -- Required
             { 'folke/neodev.nvim' },
-            {
-                -- Optional
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
+            { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
@@ -62,9 +56,6 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
-        "lukas-reineke/indent-blankline.nvim"
-    },
-    {
         'lervag/vimtex'
     },
     {
@@ -74,14 +65,11 @@ return {
     {
         'echasnovski/mini.nvim',
         version = false,
-        config = function()
-            -- Specify modules
-            require('mini.pairs').setup()
-            require('mini.comment').setup()
-            require('mini.fuzzy').setup()
-            require('mini.bufremove').setup()
-            require('mini.statusline').setup()
-            require('mini.surround').setup()
-        end
+    },
+    -- lazy.nvim
+    {
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        opts = {}
     },
 }

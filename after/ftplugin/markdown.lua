@@ -3,8 +3,11 @@ vim.opt.conceallevel = 3
 vim.keymap.set('n', '<leader>ny', ':let @" =expand("%:t")<CR>',
     { noremap = true, silent = true, desc = "yank filename of note" })
 
-vim.keymap.set('n', '<leader>nt', ':!ctags -R . <CR>:redraw!<CR>',
-    { noremap = true, silent = true, desc = "generate note tags" })
+vim.keymap.set('n', '<leader>gd', function()
+    local key = vim.fn.expand("<cword>")
+    vim.api.nvim_cmd({ cmd = 'cd', args = { '$REF_DIR' } }, {})
+    vim.api.nvim_cmd({ cmd = 'tj', args = { key } }, {})
+end)
 
 -- navigation
 vim.keymap.set('n', '<CR>', function()

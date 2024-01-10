@@ -1,6 +1,8 @@
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>", { silent = true })
+
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -79,10 +81,14 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Enable personal wiki form everywhere
-vim.keymap.set('n', '<leader>n', ':e $NOTES_DIR/index.md<CR>:cd $NOTES_DIR<CR>',
+vim.keymap.set('n', '<leader>ni', ':e $NOTES_DIR/index.md<CR>:cd $NOTES_DIR<CR>',
     { silent = true, desc = "go to notes" })
 
 vim.keymap.set('n', '<leader>nn', function()
     local filepath = '$NOTES_DIR/' .. os.date("%Y%m%d%H%M%S") .. ".md"
     vim.api.nvim_command(":e " .. filepath)
+    vim.api.nvim_command(":cd $NOTES_DIR")
 end, { desc = 'new note' })
+
+vim.keymap.set('n', '<leader>t', ':!ctags -R . <CR>:redraw!<CR>',
+    { noremap = true, silent = true, desc = "generate note tags" })
