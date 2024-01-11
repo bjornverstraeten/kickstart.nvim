@@ -9,23 +9,14 @@ require('telescope').setup({
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>ft', builtin.tags, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fs', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
 vim.keymap.set('n', '<leader>/', function()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
     builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
         previewer = false,
     })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>fr', function()
-    builtin.grep_string({ search = vim.fn.expand('%:t') }, { desc = "Find References" })
-end)
-
-vim.keymap.set('n', '<leader>fe', function()
-    vim.api.nvim_command(":cd $NOTES_DIR")
-    builtin.grep_string({ desc = "Find Entry" })
-end)
