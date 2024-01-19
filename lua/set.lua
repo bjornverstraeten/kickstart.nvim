@@ -4,7 +4,7 @@ vim.opt.relativenumber = true
 
 -- Color
 vim.opt.termguicolors = true
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("kanagawa")
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
