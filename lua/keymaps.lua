@@ -1,8 +1,7 @@
-vim.keymap.set("n", "<leader>r", ":so %<CR>", {})
+vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set({ "i", "n" }, ",,", "<Esc>:w<CR>")
 vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>", { silent = true })
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
@@ -18,17 +17,10 @@ end, { expr = true })
 vim.keymap.set("i", ";;", "<c-x><c-f>")
 vim.keymap.set("i", ";]", "<c-x><c-]>")
 
--- format
--- vim.keymap.set({ "n", "i" }, ",,", function()
---     vim.api.nvim_cmd({ cmd = 'LspZeroFormat', args = {} }, {})
--- end)
-
 -- pasting and yanking
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-
-vim.keymap.set("i", "jj", "<Esc>")
 
 -- Tab/Shift+tab to indent/dedent
 vim.keymap.set("v", "<Tab>", ">gv")
@@ -42,7 +34,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Spelling
-vim.keymap.set('n', '<leader>s', ':set spell! | echo "Spell " . (&spell ? "on" : "off")<CR>',
+vim.keymap.set('n', '<leader>s', ':setlocal spell! | echo "Spell " . (&spell ? "on" : "off")<CR>',
     { silent = true, desc = 'Toggle [S]pelling' })
 
 -- Diagnostic keymaps
