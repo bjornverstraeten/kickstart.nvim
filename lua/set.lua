@@ -1,6 +1,7 @@
 -- Line number
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.o.conceallevel = 2
 
 -- Color
 vim.opt.termguicolors = true
