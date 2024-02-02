@@ -22,13 +22,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- Tab/Shift+tab to indent/dedent
-vim.keymap.set("v", "<Tab>", ">gv")
-vim.keymap.set("n", "<Tab>", "v><C-\\><C-N>")
-vim.keymap.set("v", "<S-Tab>", "<gv")
-vim.keymap.set("n", "<S-Tab>", "v<<C-\\><C-N>")
-vim.keymap.set("i", "<S-Tab>", "<C-\\><C-N>v<<C-\\><C-N>^i")
-
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
