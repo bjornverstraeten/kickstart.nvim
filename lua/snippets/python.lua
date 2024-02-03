@@ -1,6 +1,7 @@
-local snippet = require("luasnip").snippet
-local text_node = require("luasnip").text_node
-local insert_node = require("luasnip").insert_node
+local ls = require("luasnip")
+local snippet = ls.snippet
+local text_node = ls.text_node
+local insert_node = ls.insert_node
 
 return {
     snippet(

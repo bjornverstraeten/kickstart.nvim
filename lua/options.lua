@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 -- Line number
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -5,7 +7,6 @@ vim.o.conceallevel = 2
 
 -- Color
 vim.opt.termguicolors = true
-vim.cmd.colorscheme("kanagawa")
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -83,3 +84,6 @@ vim.opt.laststatus = 3
 
 -- word wrap
 vim.o.linebreak = true
+
+-- diagnostics
+vim.g.diagnostics_visible = true

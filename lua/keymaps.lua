@@ -31,7 +31,6 @@ vim.keymap.set('n', '<leader>s', ':setlocal spell! | echo "Spell " . (&spell ? "
     { silent = true, desc = 'Toggle [S]pelling' })
 
 -- Diagnostic keymaps
-vim.g.diagnostics_visible = true
 function Toggle_diagnostics()
     if vim.g.diagnostics_visible then
         vim.g.diagnostics_visible = false
@@ -56,3 +55,6 @@ vim.keymap.set("n", "<leader>wh", "<C-w>h", {})
 vim.keymap.set("n", "<leader>wj", "<C-w>j", {})
 vim.keymap.set("n", "<leader>wk", "<C-w>k", {})
 vim.keymap.set("n", "<leader>wl", "<C-w>l", {})
+
+-- file managing
+vim.keymap.set("n", "<leader>o", ":Oil<CR>", { noremap = true, silent = true, desc = "open current directory" })
