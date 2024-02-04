@@ -56,5 +56,3 @@ vim.keymap.set("n", "<leader>wj", "<C-w>j", {})
 vim.keymap.set("n", "<leader>wk", "<C-w>k", {})
 vim.keymap.set("n", "<leader>wl", "<C-w>l", {})
 
--- file managing
-vim.keymap.set("n", "<leader>o", ":Oil<CR>", { noremap = true, silent = true, desc = "open current directory" })
