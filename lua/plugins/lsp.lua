@@ -1,4 +1,3 @@
--- Fix slow startup of lsp
 local config = function()
     local on_attach = function(_, bufnr)
         local bufmap = function(keys, func)
@@ -31,26 +30,16 @@ local config = function()
                 capabilities = capabilities,
             }
         end,
-
-        ['lua_ls'] = function()
-            require('neodev').setup()
-            require('lspconfig').lua_ls.setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                lua = {
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false },
-                },
-            }
-        end
     })
 end
 
 return {
     'neovim/nvim-lspconfig',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
+        { 'folke/neodev.nvim', opts = {} },
     },
     config = config,
 }

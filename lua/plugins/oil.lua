@@ -9,6 +9,7 @@ end
 
 return {
     'stevearc/oil.nvim',
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
         { '<leader>o', ':Oil<CR>', noremap = true, silent = true, desc = "open current directory" }
