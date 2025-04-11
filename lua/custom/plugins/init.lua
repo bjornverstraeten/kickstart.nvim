@@ -79,6 +79,12 @@ return {
       'sindrets/diffview.nvim',
       'nvim-telescope/telescope.nvim',
     },
+    opts = {
+      commit_editor = {
+        kind = 'split',
+        show_staged_diff = false,
+      },
+    },
   },
   {
     'papis.nvim',
