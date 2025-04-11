@@ -80,5 +80,20 @@ return {
       'nvim-telescope/telescope.nvim',
     },
   },
+  {
+    'papis.nvim',
+    enabled = false,
+    dir = '~/project/papis.nvim',
+    dependencies = {
+      'kkharji/sqlite.lua',
+      'MunifTanjim/nui.nvim',
+      'pysan3/pathlib.nvim',
+      'nvim-neotest/nvim-nio',
+      'hrsh7th/nvim-cmp',
+    },
+    config = function()
+      require('papis').setup {}
+    end,
+  },
 }
 -- vim: ts=2 sts=2 sw=2 et
