@@ -80,6 +80,7 @@ return {
       'nvim-telescope/telescope.nvim',
     },
     opts = {
+      graph_style = 'unicode',
       commit_editor = {
         kind = 'split',
         show_staged_diff = false,
@@ -97,14 +98,22 @@ return {
       'nvim-neotest/nvim-nio',
       'hrsh7th/nvim-cmp',
     },
-    config = function ()
-      require("papis").setup {}
+    config = function()
+      require('papis').setup {}
     end,
-    cmd = { 'Papis'},
+    cmd = { 'Papis' },
     keys = {
-      { '<leader>sp', '<CMD>Papis search<CR>', { desc = '[S]earch [P]apis library' } },
-      { 'gpf', '<CMD>Papis at-cursor open-file<CR>', { desc = '[G]oto [P]apis [F]ile' } },
-      { 'gpi', '<CMD>Papis at-cursor show-popup<CR>', { desc = '[G]oto [P]apis [I]nfo' } },
+      { '<leader>sp', '<cmd>Papis search<CR>', { desc = '[S]earch [P]apis library' } },
+      { 'gpf', '<cmd>Papis at-cursor open-file<cr>', { desc = '[G]oto [P]apis [F]ile' } },
+      { 'gpi', '<cmd>Papis at-cursor show-popup<cr>', { desc = '[G]oto [P]apis [I]nfo' } },
+    },
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    opts = {
+      open_mapping = '<leader>tt',
+      insert_mappings = false,
     },
   },
 }

@@ -11,6 +11,7 @@ vim.keymap.set('n', '<leader>t', ':!ctags -R . <CR>:redraw!<CR>', { noremap = tr
 
 --  Remap escape
 vim.keymap.set('i', 'jj', '<ESC>')
+vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
 
 -- Set root to parent of current file
 vim.keymap.set('n', '<leader>cd', ':cd %:h<CR>', { silent = true })
