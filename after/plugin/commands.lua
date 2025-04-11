@@ -79,3 +79,10 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.opt.relativenumber = false
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "NeogitStatus",
+  callback = function()
+    vim.cmd("checktime")
+  end,
+})
