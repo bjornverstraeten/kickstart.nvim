@@ -88,8 +88,8 @@ return {
   },
   {
     'papis.nvim',
-    enabled = false,
     dir = '~/project/papis.nvim',
+    lazy = false,
     dependencies = {
       'kkharji/sqlite.lua',
       'MunifTanjim/nui.nvim',
@@ -97,9 +97,15 @@ return {
       'nvim-neotest/nvim-nio',
       'hrsh7th/nvim-cmp',
     },
-    config = function()
-      require('papis').setup {}
+    config = function ()
+      require("papis").setup {}
     end,
+    cmd = { 'Papis'},
+    keys = {
+      { '<leader>sp', '<CMD>Papis search<CR>', { desc = '[S]earch [P]apis library' } },
+      { 'gpf', '<CMD>Papis at-cursor open-file<CR>', { desc = '[G]oto [P]apis [F]ile' } },
+      { 'gpi', '<CMD>Papis at-cursor show-popup<CR>', { desc = '[G]oto [P]apis [I]nfo' } },
+    },
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
