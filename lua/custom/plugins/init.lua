@@ -72,5 +72,13 @@ return {
     'folke/which-key.nvim',
     opts = { delay = 600 },
   },
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+  },
 }
 -- vim: ts=2 sts=2 sw=2 et
