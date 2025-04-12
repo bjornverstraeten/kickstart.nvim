@@ -7,7 +7,7 @@ vim.keymap.set('n', '<leader>x', ':.lua<CR>')
 vim.keymap.set('v', '<leader>x', ':lua<CR>')
 
 -- Redraw ctags
-vim.keymap.set('n', '<leader>t', ':!ctags -R . <CR>:redraw!<CR>', { noremap = true, silent = true, desc = 'redraw [T]ags' })
+-- vim.keymap.set('n', '<leader>t', ':!ctags -R . <CR>:redraw!<CR>', { noremap = true, silent = true, desc = 'redraw [T]ags' })
 
 --  Remap escape
 vim.keymap.set('i', 'jj', '<ESC>')
