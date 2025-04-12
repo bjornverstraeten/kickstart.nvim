@@ -36,6 +36,7 @@ vim.keymap.set('n', '<leader>tt', function()
     vim.api.nvim_win_set_buf(term_winid, term_bufid)
   else
     vim.cmd.term()
+    vim.cmd.startinsert()
     term_bufid = vim.api.nvim_get_current_buf()
   end
 end, { desc = '[T]oggle [T]erminal' })
