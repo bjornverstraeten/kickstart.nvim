@@ -11,4 +11,6 @@ end, { desc = 'new note' })
 vim.keymap.set('n', '<leader>gf', 't)gf')
 vim.keymap.set('n', '<BS>', ':bd<CR>')
 
+vim.keymap.set('n', '<leader>ct', ':!ctags -R . <CR>:redraw!<CR>', { noremap = true, silent = true, desc = 'redraw [T]ags' })
+
 vim.api.nvim_create_user_command('Pandoc', '!pandoc ' .. vim.fn.expand '%' .. ' -o ' .. vim.fn.expand '%:r' .. '.pdf', {})
