@@ -109,12 +109,41 @@ return {
     },
   },
   {
-    'akinsho/toggleterm.nvim',
-    version = '*',
-    opts = {
-      open_mapping = '<leader>tt',
-      insert_mappings = false,
-    },
+    'Vigemus/iron.nvim',
+    config = function()
+      local common = require 'iron.fts.common'
+      require('iron').setup {
+        config = {
+          scratch_repl = false,
+          repl_definition = {
+            python = {
+              command = { 'ipython', '--no-autoindent' },
+              format = common.bracketed_paste_python,
+              block_dividers = { '# %%', '#%%' },
+            },
+          },
+          repl_open_cmd = require('iron.view').split.vertical.rightbelow '%40',
+        },
+        keymaps = {
+          toggle_repl = '<leader>tr',
+          restart_repl = '<leader>rr',
+          send_motion = '<leader>rc',
+          visual_send = '<leader>rc',
+          send_file = '<leader>rf',
+          send_line = '<leader>rl',
+          send_paragraph = '<leader>rp',
+          send_until_cursor = '<leader>ru',
+          send_mark = '<leader>rm',
+          send_code_block = '<leader>rb',
+          send_code_block_and_move = '<leader>rn',
+          mark_motion = '<leader>mc',
+          mark_visual = '<leader>mc',
+          remove_mark = '<leader>md',
+          clear = '<leader>cl',
+        },
+        ignore_blank_lines = true,
+      }
+    end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
