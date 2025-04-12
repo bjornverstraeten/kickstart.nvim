@@ -24,11 +24,21 @@ vim.keymap.set('n', '<leader>Y', [["+Y]])
 vim.keymap.set('n', '<c-u>', '<c-u>zz')
 vim.keymap.set('n', '<c-d>', '<c-d>zz')
 
-vim.keymap.set('n', '<leader>st', function()
-  vim.cmd.new()
-  vim.cmd.term()
-  vim.api.nvim_win_set_height(0, 15)
-end)
+local term_winid = nil
+
+vim.keymap.set('n', '<leader>tt', function()
+  if term_winid and vim.api.nvim_win_is_valid(term_winid) then
+    -- If terminal is visible, close the window
+    vim.api.nvim_win_close(term_winid, true)
+    term_winid = nil
+  else
+    -- Otherwise, open a new terminal window
+    vim.cmd('belowright new')  -- open horizontal split
+    vim.cmd('term')
+    term_winid = vim.api.nvim_get_current_win()
+    vim.api.nvim_win_set_height(term_winid, 15)
+  end
+end, { desc = "[T]oggle [T]erminal" })
 
 -- Fuzzy search
 local builtin = require 'telescope.builtin'
