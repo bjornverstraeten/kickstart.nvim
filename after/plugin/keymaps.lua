@@ -23,19 +23,20 @@ vim.keymap.set('n', '<c-d>', '<c-d>zz')
 
 local term_bufid, term_winid
 vim.keymap.set('n', '<leader>tt', function()
-  if not term_bufid or not vim.api.nvim_buf_is_valid(term_bufid) then
-    vim.cmd 'belowright new'
+  if term_winid and vim.api.nvim_win_is_valid(term_winid) then
+    vim.api.nvim_win_close(term_winid, true)
+    return
+  end
+
+  vim.cmd 'split'
+  term_winid = vim.api.nvim_get_current_win()
+  vim.api.nvim_win_set_height(term_winid, 15)
+
+  if term_bufid and vim.api.nvim_buf_is_valid(term_bufid) then
+    vim.api.nvim_win_set_buf(term_winid, term_bufid)
+  else
     vim.cmd 'term'
     term_bufid = vim.api.nvim_get_current_buf()
-    term_winid = vim.api.nvim_get_current_win()
-    vim.api.nvim_win_set_height(term_winid, 15)
-  elseif term_winid and vim.api.nvim_win_is_valid(term_winid) then
-      vim.api.nvim_win_close(term_winid, true)
-  else
-    vim.cmd 'split'
-    term_winid = vim.api.nvim_get_current_win()
-    vim.api.nvim_win_set_height(term_winid, 15)
-    vim.api.nvim_win_set_buf(term_winid, term_bufid)
   end
 end, { desc = '[T]oggle [T]erminal' })
 
@@ -70,6 +71,7 @@ vim.keymap.set('n', '<leader>sr', themed_picker(builtin.resume), { desc = '[S]ea
 vim.keymap.set('n', '<leader>s.', themed_picker(builtin.oldfiles), { desc = '[S]earch Recent Files ("." for repeat)' })
 vim.keymap.set('n', '<leader>sn', themed_picker(builtin.find_files, { cwd = vim.fn.stdpath 'config' }), { desc = '[S]earch [N]eovim files' })
 vim.keymap.set('n', '<leader>sb', themed_picker(builtin.buffers), { desc = '[ ] Find existing buffers' })
+
 vim.keymap.del('n', '<leader><leader>')
 
 -- vim: ts=2 sts=2 sw=2 et
