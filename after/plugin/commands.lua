@@ -86,3 +86,5 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     vim.cmd("checktime")
   end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {command = 'startinsert'})
