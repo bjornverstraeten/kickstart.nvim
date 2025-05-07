@@ -65,6 +65,7 @@ return {
         python = { 'ruff_format', 'ruff_organize_imports' },
         markdown = { 'prettier' },
         tex = { 'latexindent' },
+        r = { 'air' },
       },
     },
   },
@@ -112,6 +113,7 @@ return {
     'Vigemus/iron.nvim',
     config = function()
       local common = require 'iron.fts.common'
+      local view = require 'iron.view'
       require('iron').setup {
         config = {
           scratch_repl = false,
@@ -121,11 +123,20 @@ return {
               format = common.bracketed_paste_python,
               block_dividers = { '# %%', '#%%' },
             },
+            r = {
+              command = { 'R' },
+            },
           },
-          repl_open_cmd = require('iron.view').split.vertical.rightbelow '%40',
+          -- repl_open_cmd = require('iron.view').split.vertical.rightbelow '%40',
+          repl_open_cmd = {
+            view.split.vertical.rightbelow '%40', -- cmd_1: open a repl to the right
+            view.split.rightbelow '%25', -- cmd_2: open a repl below
+          },
         },
         keymaps = {
-          toggle_repl = '<leader>tr',
+          toggle_repl = '<leader>trr',
+          toggle_repl_with_cmd_1 = "<leader>trv",
+          toggle_repl_with_cmd_2 = "<leader>trh",
           restart_repl = '<leader>rr',
           send_motion = '<leader>rc',
           visual_send = '<leader>rc',

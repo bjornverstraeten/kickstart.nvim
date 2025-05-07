@@ -8,7 +8,7 @@ vim.keymap.set('v', '<leader>x', ':lua<CR>')
 
 --  Remap escape
 vim.keymap.set('i', 'jj', '<ESC>')
-vim.keymap.set('t', 'jj', [[<C-\><C-n>]])
+vim.keymap.set('t', '<c-j><c-j>', [[<C-\><C-n>]])
 
 -- Set root to parent of current file
 vim.keymap.set('n', '<leader>cd', ':cd %:h<CR>', { silent = true })

@@ -1,3 +1,7 @@
+vim.opt_local.foldenable = false
+vim.opt_local.conceallevel = 2
+vim.g.vim_markdown_math = 1
+
 vim.api.nvim_cmd({ cmd = 'set', args = { 'suffixesadd+=.md' } }, {})
 
 vim.keymap.set('n', '<leader>nn', function()
