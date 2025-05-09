@@ -135,8 +135,8 @@ return {
         },
         keymaps = {
           toggle_repl = '<leader>trr',
-          toggle_repl_with_cmd_1 = "<leader>trv",
-          toggle_repl_with_cmd_2 = "<leader>trh",
+          toggle_repl_with_cmd_1 = '<leader>trv',
+          toggle_repl_with_cmd_2 = '<leader>trh',
           restart_repl = '<leader>rr',
           send_motion = '<leader>rc',
           visual_send = '<leader>rc',
@@ -155,6 +155,18 @@ return {
         ignore_blank_lines = true,
       }
     end,
+  },
+  {
+    {
+      'quarto-dev/quarto-nvim',
+      dependencies = {
+        'jmbuhr/otter.nvim',
+        'nvim-treesitter/nvim-treesitter',
+      },
+      opts = {
+        codeRunner = { default_method = 'iron' },
+      },
+    },
   },
 }
 -- vim: ts=2 sts=2 sw=2 et

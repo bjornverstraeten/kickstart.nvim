@@ -75,4 +75,5 @@ vim.keymap.set('n', '<leader>sb', themed_picker(builtin.buffers), { desc = '[ ] 
 
 vim.keymap.del('n', '<leader><leader>')
 
+
 -- vim: ts=2 sts=2 sw=2 et

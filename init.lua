@@ -1,5 +1,5 @@
 --[[
-
+--
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
@@ -659,7 +659,9 @@ require('lazy').setup({
         air = {},
         jedi_language_server = {},
         texlab = {},
-        marksman = {},
+        marksman = {
+          filetypes = { 'markdown', 'quarto' },
+        },
         ltex = {
           on_attach = function(client, _)
             require('ltex_extra').setup {
@@ -749,6 +751,7 @@ require('lazy').setup({
           end,
         },
       }
+      require('lspconfig')['marksman'].setup { filetypes = { 'markdown', 'quarto' } }
     end,
   },
 
@@ -811,17 +814,17 @@ require('lazy').setup({
           end
           return 'make install_jsregexp'
         end)(),
-        dependencies = {
-          -- `friendly-snippets` contains a variety of premade snippets.
-          --    See the README about individual language/framework/plugin snippets:
-          --    https://github.com/rafamadriz/friendly-snippets
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
-        },
+        -- dependencies = {
+        --   -- `friendly-snippets` contains a variety of premade snippets.
+        --   --    See the README about individual language/framework/plugin snippets:
+        --   --    https://github.com/rafamadriz/friendly-snippets
+        --   {
+        --     'rafamadriz/friendly-snippets',
+        --     config = function()
+        --       require('luasnip.loaders.from_vscode').lazy_load()
+        --     end,
+        --   },
+        -- },
         opts = {},
       },
       'folke/lazydev.nvim',
@@ -873,6 +876,7 @@ require('lazy').setup({
         default = { 'lsp', 'path', 'snippets', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          snippets = { opts = { search_paths = '~/.config/nvim-kickstart/snippets/' } },
         },
       },
 
