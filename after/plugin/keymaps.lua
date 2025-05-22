@@ -36,7 +36,6 @@ vim.keymap.set('n', '<leader>tt', function()
     vim.api.nvim_win_set_buf(term_winid, term_bufid)
   else
     vim.cmd.term()
-    vim.cmd.startinsert()
     term_bufid = vim.api.nvim_get_current_buf()
   end
 end, { desc = '[T]oggle [T]erminal' })
@@ -75,5 +74,48 @@ vim.keymap.set('n', '<leader>sb', themed_picker(builtin.buffers), { desc = '[ ] 
 
 vim.keymap.del('n', '<leader><leader>')
 
+-- Harpoon
+local harpoon = require 'harpoon'
 
+vim.keymap.set('n', '<leader>ma', function()
+  local filepath = vim.fn.expand '%'
+  harpoon:list():add()
+  vim.notify('Added ' .. filepath .. ' to Harpoon', vim.log.levels.INFO)
+end, { desc = '[M]ark [A]dd' })
+vim.keymap.set('n', '<leader>md', function()
+  local filepath = vim.fn.expand '%'
+  harpoon:list():remove()
+  vim.notify('Deleted ' .. filepath .. ' from Harpoon', vim.log.levels.INFO)
+end, { desc = '[M]ark [D]elete' })
+
+vim.keymap.set('n', '<leader>mD', function()
+  harpoon:list():clear()
+end, { desc = '[M]ark [D]elete all' })
+
+vim.keymap.set('n', '<leader>sm', function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = '[S]earch [M]arked files' })
+vim.keymap.set('n', '[h', function()
+
+  harpoon:list():prev { ui_nav_wrap = true }
+end, { desc = 'goto previous item in the harpoon list' })
+vim.keymap.set('n', ']h', function()
+  harpoon:list():next { ui_nav_wrap = true }
+end, { desc = 'goto next item in the harpoon list' })
+
+vim.keymap.set('n', '<leader>m1', function()
+  harpoon:list():select(1)
+end)
+vim.keymap.set('n', '<leader>m2', function()
+  harpoon:list():select(2)
+end)
+vim.keymap.set('n', '<leader>m3', function()
+  harpoon:list():select(3)
+end)
+vim.keymap.set('n', '<leader>m4', function()
+  harpoon:list():select(4)
+end)
+vim.keymap.set('n', '<leader>m5', function()
+  harpoon:list():select(5)
+end)
 -- vim: ts=2 sts=2 sw=2 et

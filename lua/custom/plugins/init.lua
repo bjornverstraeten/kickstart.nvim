@@ -64,6 +64,7 @@ return {
         lua = { 'stylua' },
         python = { 'ruff_format', 'ruff_organize_imports' },
         markdown = { 'prettier' },
+        toml = { 'prettier' },
         tex = { 'latexindent' },
         r = { 'air' },
       },
@@ -134,10 +135,10 @@ return {
           },
         },
         keymaps = {
-          toggle_repl = '<leader>trr',
-          toggle_repl_with_cmd_1 = '<leader>trv',
-          toggle_repl_with_cmd_2 = '<leader>trh',
-          restart_repl = '<leader>rr',
+          toggle_repl = '<leader>rr',
+          toggle_repl_with_cmd_1 = '<leader>rv',
+          toggle_repl_with_cmd_2 = '<leader>rh',
+          restart_repl = '<leader>rR',
           send_motion = '<leader>rc',
           visual_send = '<leader>rc',
           send_file = '<leader>rf',
@@ -167,6 +168,17 @@ return {
         codeRunner = { default_method = 'iron' },
       },
     },
+  },
+  {
+    'chentoast/marks.nvim',
+    event = 'VeryLazy',
+    opts = {},
+  },
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
